@@ -3,208 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Înscriere & Asistență - Ghiran Auto Moto</title>
+    <title>Înscriere Categoria B - Școala Auto Ghiran</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Stil pentru rotația lină a săgeților din FAQ */
+        /* Stiluri pentru animația interactivă de FAQ */
         .faq-arrow { transition: transform 0.2s ease; }
         .faq-active .faq-arrow { transform: rotate(180deg); }
         .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; }
-        .faq-active .faq-content { max-height: 200px; }
+        .faq-active .faq-content { max-height: 250px; }
     </style>
 </head>
-<body class="bg-gray-50 font-sans antialiased">
+<body class="bg-gray-50 font-sans antialiased text-gray-900">
 
 <section class="min-h-screen flex flex-col justify-between">
   
-  <!-- CONTAINER PRINCIPAL MOBIL -->
-  <div class="w-full max-w-md mx-auto px-4 py-8 space-y-8 flex-grow">
+  <!-- CONTAINER PRINCIPAL OPTIMIZAT PENTRU MOBIL -->
+  <div class="w-full max-w-md mx-auto px-4 py-6 space-y-6 flex-grow">
     
+    <!-- BRANDING TOP -->
+    <div class="text-center py-2">
+      <h1 class="text-xl font-black tracking-wider text-gray-950">ȘCOALA AUTO GHIRAN</h1>
+      <p class="text-xs text-red-650 font-bold text-red-650 uppercase tracking-widest mt-0.5">Cel mai bun start în conducere!</p>
+    </div>
+
     <!-- ========================================== -->
-    <!-- FAZA 2: FORMULARUL DE ÎNSCRIERE ONLINE    -->
+    <!-- FAZA 2: FORMULAR DE ÎNSCRIERE ONLINE      -->
     <!-- ========================================== -->
-    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-6 space-y-6">
-      <!-- Header Formular -->
-      <div class="text-center space-y-2">
-        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">🎉 Ofertă Activă</span>
-        <h2 class="text-2xl font-black text-gray-900 tracking-tight">Înscriere Instant Categoria B</h2>
-        <p class="text-gray-500 text-sm">Completează datele în 30 de secunde. Trimitem noi dosarul la secretariat!</p>
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-5 space-y-5">
+      <div class="text-center space-y-1">
+        <span class="bg-green-100 text-green-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wide">🎉 Înscriere Online</span>
+        <h2 class="text-xl font-black text-gray-900 tracking-tight">Prinde un loc în următoarea grupă</h2>
+        <p class="text-gray-500 text-xs">Completezi datele de pe mobil în 30 de secunde și noi pregătim dosarul!</p>
       </div>
 
-      <!-- Indicator Preț -->
-      <div class="border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center bg-gray-50">
-        <span class="text-gray-500 text-xs uppercase font-bold block mb-1">Cost Înscriere</span>
+      <!-- Card Preț Transparent -->
+      <div class="bg-gray-50 rounded-2xl p-4 text-center border border-gray-100">
+        <span class="text-gray-400 text-[10px] uppercase font-bold tracking-wider block mb-0.5">Cost Înscriere Astăzi</span>
         <span class="text-3xl font-black text-red-600">0 LEI</span>
-        <span class="text-gray-500 text-xs block mt-1">Plătești prima rată (500 lei) doar când începi orele de conducere![cite: 1]</span>
+        <span class="text-gray-500 text-xs block mt-1">Plătești prima rată (500 lei) doar când începi orele de conducere!</span>
       </div>
 
       <!-- Formular -->
-      <form id="inscriereForm" class="space-y-5" onsubmit="trimitePeWhatsApp(event)">
+      <form id="inscriereForm" class="space-y-4" onsubmit="trimiteDateWhatsApp(event)">
         <div class="space-y-1">
-          <label class="text-xs font-bold text-gray-750 text-gray-700 uppercase tracking-wider block">Nume și Prenume elev</label>
-          <input type="text" id="nume" placeholder="Ex: Popescu Ionuț" class="w-full text-base font-medium px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all duration-200" required />
+          <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wider block">Nume și Prenume Elev</label>
+          <input type="text" id="nume" placeholder="Ex: Popescu Ionuț" class="w-full text-sm px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all" required />
         </div>
 
         <div class="space-y-1">
-          <label class="text-xs font-bold text-gray-750 text-gray-700 uppercase tracking-wider block">Număr de Telefon</label>
-          <input type="tel" id="telefon" placeholder="07xx xxx xxx" class="w-full text-base font-medium px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all duration-200" required />
+          <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wider block">Număr de Telefon</label>
+          <input type="tel" id="telefon" placeholder="07xx xxx xxx" class="w-full text-sm px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all" required />
         </div>
 
-        <div class="space-y-2">
-          <label class="text-xs font-bold text-gray-750 text-gray-700 uppercase tracking-wider block">Unde vrei să faci școala?</label>
+        <div class="space-y-1.5">
+          <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wider block">Unde vrei să faci școala?</label>
           <div class="grid grid-cols-2 gap-3">
-            <label class="flex items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all relative">
+            <label class="flex items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all">
               <input type="radio" name="locatie" value="Dej" class="accent-red-600 mr-2" checked />
-              <span class="text-base font-bold text-gray-900">DEJ</span>
+              <span class="text-sm font-bold text-gray-900">DEJ</span>
             </label>
-            <label class="flex items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all relative">
+            <label class="flex items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all">
               <input type="radio" name="locatie" value="Gherla" class="accent-red-600 mr-2" />
-              <span class="text-base font-bold text-gray-900">GHERLA</span>
+              <span class="text-sm font-bold text-gray-900">GHERLA</span>
             </label>
           </div>
         </div>
 
         <div class="space-y-1">
-          <label class="text-xs font-bold text-gray-750 text-gray-700 uppercase tracking-wider block">Încarcă Poză Buletin (Opțional)</label>
-          <div class="relative flex items-center justify-center w-full">
-            <label class="flex flex-col w-full h-24 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer hover:bg-gray-50 transition-all justify-center items-center">
-              <div class="flex flex-col items-center justify-center pt-2">
-                <span class="text-xl">📸</span>
-                <p class="text-sm font-bold text-gray-600 mt-1">Apasă și fă o poză buletinului</p>
-                <p class="text-xs text-gray-400">Ne ocupăm noi de restul actelor[cite: 1]</p>
-              </div>
-              <input type="file" accept="image/*" class="hidden" />
-            </label>
-          </div>
+          <label class="text-[11px] font-bold text-gray-600 uppercase tracking-wider block">Poză Buletin (Opțional)</label>
+          <label class="flex flex-col w-full h-20 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer hover:bg-gray-50 transition-all justify-center items-center bg-gray-50">
+            <div class="flex flex-col items-center justify-center">
+              <span class="text-lg">📸</span>
+              <p class="text-xs font-bold text-gray-600 mt-0.5">Apasă și fotografiază buletinul</p>
+            </div>
+            <input type="file" accept="image/*" class="hidden" />
+          </label>
         </div>
 
-        <button type="submit" class="w-full bg-red-600 text-white font-black text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(227,30,36,0.3)] hover:shadow-[0_0_35px_rgba(227,30,36,0.6)] active:scale-[0.98] transition-all duration-300 tracking-wide uppercase mt-2">
+        <button type="submit" class="w-full bg-red-600 text-white font-black text-base py-3.5 rounded-xl shadow-lg active:scale-[0.99] transition-all uppercase tracking-wide mt-2">
           Trimite Înscrierea Gratuită 🚀
         </button>
-        <p class="text-center text-[11px] text-gray-400 mt-3">🔒 Datele tale sunt protejate conform normelor GDPR.</p>
       </form>
     </div>
 
-<!-- ========================================== -->
-<!-- SECTIUNEA: CE ZIC ELEVII NOȘTRI (RECENZII) -->
-<!-- ========================================== -->
-<div class="space-y-4">
-  <div class="text-center space-y-1">
-    <span class="text-xs font-bold text-red-650 bg-red-100 text-red-600 px-3 py-1 rounded-full uppercase tracking-wider">Mărturii Cursanți</span>
-    <h3 class="text-xl font-black text-gray-900 tracking-tight">Ei au zâmbit cu permisul în mână. Tu urmezi!🚀</h3>
-  </div>
-
-  <!-- Listă Recenzii Adaptată pentru Mobil -->
-  <div class="space-y-4">
-    
-    <!-- Recenzia 1: Profil Licean -->
-    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-red-100 text-red-600 font-black rounded-full flex items-center justify-center text-sm">
-          AI
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-gray-900">Andrei Ionescu</h4>
-          <p class="text-[11px] text-gray-400">Elev la Liceul „Petru Maior” Gherla</p>
-        </div>
-        <div class="ml-auto text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-      <p class="text-xs text-gray-650 text-gray-600 leading-relaxed italic">
-        "Recomand din tot sufletul! Am avut mari emoții la început, dar instructorul a avut o răbdare de fier. Teoria pe Meet a fost super confortabilă, am învățat direct de pe telefon din camera mea și am luat sala din prima cu 26 de puncte!"[cite: 5, 6]
-      </p>
-    </div>
-
-    <!-- Recenzia 2: Profil Părinte -->
-    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-gray-100 text-gray-600 font-black rounded-full flex items-center justify-center text-sm">
-          EM
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-gray-900">Elena Mureșan</h4>
-          <p class="text-[11px] text-gray-400">Părinte din Dej</p>
-        </div>
-        <div class="ml-auto text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-      <p class="text-xs text-gray-650 text-gray-600 leading-relaxed italic">
-        "O școală extrem de serioasă. Ca mamă, siguranța copilului meu a fost pe primul loc. Prețurile sunt transparente, am putut plăti în rate direct la secretariat fără nicio problemă, iar băiatul meu conduce acum foarte prudent. Mulțumim Ghiran Auto Moto!"[cite: 1, 6]
-      </p>
-    </div>
-
-    <!-- Recenzia 3: Cursant Adult -->
-    <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-      <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 bg-red-100 text-red-600 font-black rounded-full flex items-center justify-center text-sm">
-          DP
-        </div>
-        <div>
-          <h4 class="text-sm font-bold text-gray-900">Dan Pop</h4>
-          <p class="text-[11px] text-gray-400">Cursant din Dej</p>
-        </div>
-        <div class="ml-auto text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
-      </div>
-      <p class="text-xs text-gray-650 text-gray-600 leading-relaxed italic">
-        "Mașinile (Renault Clio 4) sunt impecabile și foarte ușor de parcat datorită dimensiunilor. Instructorul te învață exact capcanele din trafic din Dej, nu doar traseul de examen. Am luat permisul din prima încercare!"[cite: 1, 3]
-      </p>
-    </div>
-
-  </div>
-</div>
     <!-- ========================================== -->
-    <!-- FAZA 3: SECRETARA VIRTUALĂ (FAQ INTERACTIV)-->
+    <!-- DOVADA SOCIALĂ: CE ZIC CURSANȚII          -->
     <!-- ========================================== -->
-    <div class="space-y-4">
-      <div class="text-center space-y-1">
-        <h3 class="text-xl font-black text-gray-900 tracking-tight">🤖 Secretara Virtuală Ghiran</h3>
-        <p class="text-xs text-gray-500">Apasă pe orice întrebare pentru a primi răspunsul instantaneu.</p>
+    <div class="space-y-3">
+      <div class="text-center">
+        <h3 class="text-base font-black text-gray-900 tracking-tight">⭐ Absolvenți Fericiți din Dej & Gherla</h3>
+      </div>
+      
+      <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 space-y-2">
+        <div class="flex justify-between items-center">
+          <span class="text-xs font-bold text-gray-800">Andrei M. (Liceul LAPI Dej)</span>
+          <span class="text-yellow-400 text-xs">⭐⭐⭐⭐⭐</span>
+        </div>
+        <p class="text-xs text-gray-650 text-gray-600 italic">"Teoria online pe Meet mi-a salvat mult timp cu meditațiile pentru Bac. Instructorul a fost extrem de calm, iar pe Renault Clio 4 am învățat parcările din prima!"</p>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FAZA 3: SECRETARA VIRTUALĂ (FAQ ACCORDEON) -->
+    <!-- ========================================== -->
+    <div class="space-y-3">
+      <div class="text-center space-y-0.5">
+        <h3 class="text-base font-black text-gray-900 tracking-tight">🤖 Asistență Instant - Secretara Virtuală</h3>
+        <p class="text-[11px] text-gray-500">Apasă pe întrebare pentru a primi răspunsul pe loc.</p>
       </div>
 
-      <div class="space-y-3">
-        <!-- Întrebarea 1 -->
-        <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 cursor-pointer transition-all" onclick="toggleFaq(this)">
+      <div class="space-y-2">
+        <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-3.5 cursor-pointer transition-all" onclick="toggleFaq(this)">
           <div class="flex justify-between items-center">
-            <span class="text-sm font-bold text-gray-800">Cât costă școala și cum se poate plăti?</span>
-            <span class="faq-arrow text-gray-400 font-bold">▼</span>
+            <span class="text-xs font-bold text-gray-800">Cât costă școala și cum pot plăti?</span>
+            <span class="faq-arrow text-gray-400 text-xs">▼</span>
           </div>
-          <div class="faq-content text-xs text-gray-650 text-gray-600 mt-2 space-y-1">
-            <p>Pachetul complet pentru Categoria B costă <strong>2190 Lei</strong>.[cite: 1]</p>
-            <p>Poți plăti în rate flexibile direct la secretariat, cu 0% dobândă. Avansul este de doar 500 Lei.[cite: 1]</p>
+          <div class="faq-content text-xs text-gray-600 mt-2 space-y-1">
+            <p>Pachetul complet Categoria B este <strong>2190 Lei</strong>. Poți achita flexibil în rate direct la secretariat, cu 0% dobândă. Avansul la pornire este de doar 500 Lei.</p>
           </div>
         </div>
 
-        <!-- Întrebarea 2 -->
-        <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 cursor-pointer transition-all" onclick="toggleFaq(this)">
+        <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-3.5 cursor-pointer transition-all" onclick="toggleFaq(this)">
           <div class="flex justify-between items-center">
-            <span class="text-sm font-bold text-gray-800">Cum se desfășoară orele de teorie?</span>
-            <span class="faq-arrow text-gray-400 font-bold">▼</span>
+            <span class="text-xs font-bold text-gray-800">Cum se fac orele de teorie?</span>
+            <span class="faq-arrow text-gray-400 text-xs">▼</span>
           </div>
-          <div class="faq-content text-xs text-gray-650 text-gray-600 mt-2 space-y-1">
-            <p>Suntem singura școală din zonă cu teorie ultra-confortabilă desfășurată <strong>live pe Google Meet</strong>.[cite: 1, 5]</p>
-            <p>Înveți direct de pe telefon sau tabletă, din camera ta, fără drumuri obositoare în săli aglomerate.</p>
-          </div>
-        </div>
-
-        <!-- Întrebarea 3 -->
-        <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 cursor-pointer transition-all" onclick="toggleFaq(this)">
-          <div class="flex justify-between items-center">
-            <span class="text-sm font-bold text-gray-800">Pe ce mașini se fac orele de conducere?</span>
-            <span class="faq-arrow text-gray-400 font-bold">▼</span>
-          </div>
-          <div class="faq-content text-xs text-gray-650 text-gray-600 mt-2 space-y-1">
-            <p>Pregătirea practică se face pe autoturisme moderne <strong>Renault Clio 4</strong>, alegerea nr. 1 în Europa pentru școli auto.[cite: 1, 3]</p>
-            <p>Sunt mașini compacte, extrem de ușor de manevrat la parcări și viraje în oraș.[cite: 3]</p>
-          </div>
-        </div>
-
-        <!-- Întrebarea 4 -->
-        <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 cursor-pointer transition-all" onclick="toggleFaq(this)">
-          <div class="flex justify-between items-center">
-            <span class="text-sm font-bold text-gray-800">Ce documente îmi trebuie pentru dosar?</span>
-            <span class="faq-arrow text-gray-400 font-bold">▼</span>
-          </div>
-          <div class="faq-content text-xs text-gray-650 text-gray-600 mt-2 space-y-1">
-            <p>Inițial avem nevoie doar de o poză după buletin.[cite: 1]</p>
-            <p>Ulterior se adaugă analizele medicale (~200 lei), testul psihologic (~100 lei) și cazierul judiciar (gratuit online).[cite: 1]</p>
+          <div class="faq-content text-xs text-gray-600 mt-2 space-y-1">
+            <p>Suntem singura școală din zonă cu teorie complet online, <strong>live pe Google Meet</strong>. Înveți direct din camera ta, de pe telefon, fără drumuri inutile la sală.</p>
           </div>
         </div>
       </div>
@@ -212,58 +137,32 @@
 
   </div>
 
-  <!-- FOOTER OPTIMIZAT MOBIL -->
-  <footer class="bg-gray-900 text-white w-full text-center px-6 py-8 mt-auto space-y-6">
-    <div class="flex flex-col items-center space-y-2">
-      <div class="text-white font-black text-xl tracking-wider">GHIRAN AUTO MOTO</div>
-      <p class="text-red-500 font-bold text-sm tracking-wide uppercase">Cel mai bun start în conducere!</p>
+  <!-- FOOTER MOBIL MINIMALIST -->
+  <footer class="bg-gray-950 text-gray-400 text-center py-6 px-4 mt-8 border-t border-gray-900 space-y-4">
+    <div class="space-y-0.5">
+      <p class="text-xs font-bold text-white tracking-wider">ȘCOALA AUTO GHIRAN</p>
+      <p class="text-[11px]">Sediul: Str. Mihail Kogălniceanu Nr. 10, Dej</p>
+      <p class="text-xs font-bold text-red-500 mt-1"><a href="tel:0765350334">📞 0765 350 334</a></p>
     </div>
-    
-    <hr class="border-gray-800 w-16 mx-auto" />
-
-    <div class="space-y-1">
-      <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Sediul Principal Dej</h4>
-      <p class="text-sm text-gray-300">Strada Mihail Kogălniceanu Nr. 10, Dej, jud. Cluj</p>
-      <p class="text-sm font-bold text-red-400"><a href="tel:0765350334">0765 350 334</a></p>
-    </div>
-
-    <hr class="border-gray-800 w-16 mx-auto" />
-
-    <div class="space-y-1">
-      <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Punct de Întâlnire Gherla</h4>
-      <p class="text-sm text-gray-300">Zonă stabilită de comun acord cu instructorul pentru începerea orelor de practică.</p>
-    </div>
-
-    <hr class="border-gray-800 w-16 mx-auto" />
-
-    <div class="flex flex-col items-center space-y-4 text-xs text-gray-400">
-      <a href="index.html" class="text-white font-bold hover:text-red-500 transition-colors">← Înapoi la Acasă</a>
-      <p class="text-[11px] text-gray-600">&copy; 2026 Ghiran Auto Moto. Toate drepturile rezervate.</p>
-    </div>
+    <p class="text-[10px] text-gray-600">&copy; 2026 scoala-ghiran.ro. Toate drepturile rezervate.</p>
   </footer>
 </section>
 
-<!-- SCRIPTLOGICĂ INTERACTIVĂ -->
 <script>
-// Funcție pentru deschiderea/închiderea lină a întrebărilor din Secretara Virtuală
 function toggleFaq(element) {
   element.classList.toggle('faq-active');
 }
 
-// Funcție de trimitere automată a datelor pe WhatsApp
-function trimitePeWhatsApp(event) {
+function trimiteDateWhatsApp(event) {
   event.preventDefault();
-  
   const nume = document.getElementById('nume').value;
   const telefon = document.getElementById('telefon').value;
   const locatie = document.querySelector('input[name="locatie"]:checked').value;
   
-  const numarSecretariat = "40765350334"; 
+  const numarSecretariat = "40765350334";
+  const mesaj = `Salut! M-am înscris pe site-ul scoala-ghiran.ro.\n\n👤 Nume: ${nume}\n📞 Telefon: ${telefon}\n📍 Locație: ${locatie}\n\nAștept detalii pentru începerea cursurilor!`;
   
-  const mesaj = `Salut, Ghiran Auto Moto! M-am înscris gratuit pe site pentru Categoria B. Numele meu este ${nume} și atașez poza cu buletinul pentru dosar.\n\nDetalii suplimentare:\n📍 Locație dorită: ${locatie}\n📞 Telefon: ${telefon}`;
-  
-  const urlWhatsApp = `https://wa.me/${numarSecretariat}?text=${encodeURIComponent(mesaj)}`;
-  window.open(urlWhatsApp, '_blank');
+  window.open(`https://wa.me/${numarSecretariat}?text=${encodeURIComponent(mesaj)}`, '_blank');
 }
 </script>
 
