@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Înscriere Categoria B - Ghiran Auto Moto</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#E31E24',
+        },
+        fontFamily: {
+          display: ['"Archivo Black"', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<div class="max-w-[420px] mx-auto bg-gray-50 min-h-screen shadow-2xl">
+
+<section class="min-h-screen bg-gray-50 flex flex-col justify-between">
+  <!-- Container Centrat Formular -->
+  <div class="flex-grow flex items-center justify-center px-4 py-8">
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 w-full max-w-md p-6 space-y-6">
+      
+      <!-- Header Formular -->
+      <div class="text-center space-y-2">
+        <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">🎉 Ofertă Activă</span>
+        <h2 class="text-2xl font-black text-gray-900 tracking-tight">Înscriere Instant Categoria B</h2>
+        <p class="text-gray-500 text-sm">Completează datele în 30 de secunde. Trimitem noi dosarul la secretariat!</p>
+      </div>
+
+      <!-- Indicator Preț / Înscriere Gratis -->
+      <div class="border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center bg-gray-50">
+        <span class="text-gray-500 text-xs uppercase font-bold block mb-1">Cost Înscriere</span>
+        <span class="text-3xl font-black text-red-600">0 LEI</span>
+        <span class="text-gray-500 text-xs block mt-1">Plătești prima rată (500 lei) doar când începi orele de conducere!</span>
+      </div>
+
+      <!-- Formularul cu Automatizare WhatsApp -->
+      <form id="inscriereForm" class="space-y-5" onsubmit="trimitePeWhatsApp(event)">
+        <!-- Input Nume -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Nume și Prenume elev</label>
+          <input type="text" id="nume" placeholder="Ex: Popescu Ionuț" class="w-full text-base font-medium px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all duration-200" required />
+        </div>
+
+        <!-- Input Telefon -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Număr de Telefon</label>
+          <input type="tel" id="telefon" placeholder="07xx xxx xxx" class="w-full text-base font-medium px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-red-500 focus:bg-white focus:outline-none transition-all duration-200" required />
+        </div>
+
+        <!-- Selectare Locație Cursuri (Dej / Gherla) -->
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Unde vrei să faci școala?</label>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex flex-col items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all relative">
+              <input type="radio" name="locatie" value="Dej" class="accent-red-600 mr-1" checked />
+              <span class="text-base font-bold text-gray-900">DEJ</span>
+              <span class="text-xs text-gray-500">Sediul Principal</span>
+            </label>
+            <label class="flex flex-col items-center justify-center p-3 bg-gray-50 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-red-500 transition-all relative">
+              <input type="radio" name="locatie" value="Gherla" class="accent-red-600 mr-1" />
+              <span class="text-base font-bold text-gray-900">GHERLA</span>
+              <span class="text-xs text-gray-500">Punct de Întâlnire</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Zona Încărcare Buletin -->
+        <div class="space-y-1">
+          <label class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Încarcă Poză Buletin (Opțional)</label>
+          <div class="relative flex items-center justify-center w-full">
+            <label class="flex flex-col w-full h-24 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer hover:bg-gray-50 transition-all justify-center items-center">
+              <div class="flex flex-col items-center justify-center pt-2">
+                <span class="text-xl">📸</span>
+                <p class="text-sm font-bold text-gray-600 mt-1">Apasă și fă o poză buletinului</p>
+                <p class="text-xs text-gray-400">Ne ocupăm noi de restul actelor</p>
+              </div>
+              <input type="file" accept="image/*" class="hidden" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Butonul Luminat de Trimitere (Neon/Glow Effect) -->
+        <button type="submit" class="w-full bg-red-600 text-white font-black text-lg py-4 rounded-xl shadow-[0_0_20px_rgba(227,30,36,0.3)] hover:shadow-[0_0_35px_rgba(227,30,36,0.6)] active:scale-[0.98] transition-all duration-300 tracking-wide uppercase mt-2">
+          Trimite Înscrierea Gratuită 🚀
+        </button>
+
+        <!-- Text de Siguranță GDPR -->
+        <p class="text-center text-[11px] text-gray-400 mt-3">
+          🔒 Datele tale sunt în siguranță. Nu trimitem spam și nu transmitem datele către terți.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer Complet - Mobile First -->
+  <footer class="bg-gray-900 text-white w-full text-center px-6 py-8 mt-auto space-y-6">
+    <!-- Zona 1: Logo & Slogan -->
+    <div class="flex flex-col items-center space-y-2">
+      <img src="logo1.png" alt="Ghiran Auto Moto" class="h-12 w-auto object-contain brightness-0 invert" />
+      <p class="text-red-500 font-bold text-sm tracking-wide uppercase">Cel mai bun start în conducere!</p>
+    </div>
+    
+    <hr class="border-gray-800 w-16 mx-auto" />
+
+    <!-- Zona 2: Sediul Principal Dej -->
+    <div class="space-y-1">
+      <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Sediul Principal Dej</h4>
+      <p class="text-sm text-gray-300">Strada Mihail Kogălniceanu Nr. 10, Dej, jud. Cluj</p>
+      <p class="text-sm font-bold text-red-400"><a href="tel:0765350334">0765 350 334</a></p>
+      <p class="text-xs text-gray-500">Program Secretariat: Luni - Vineri: 09:00 - 17:00</p>
+    </div>
+
+    <hr class="border-gray-800 w-16 mx-auto" />
+
+    <!-- Zona 3: Punct de Întâlnire Gherla -->
+    <div class="space-y-1">
+      <h4 class="text-xs font-black tracking-widest text-gray-400 uppercase">Punct de Întâlnire Gherla</h4>
+      <p class="text-sm text-gray-300">Zonă stabilită de comun acord cu instructorul pentru începerea orelor de practică.</p>
+    </div>
+
+    <hr class="border-gray-800 w-16 mx-auto" />
+
+    <!-- Zona 4: Link-uri & Legal -->
+    <div class="flex flex-col items-center space-y-4 text-xs text-gray-400">
+      <a href="ghiran-auto-moto-tailwind.html" class="text-white font-bold hover:text-red-500 transition-colors">← Înapoi la Acasă</a>
+      <div class="flex justify-center space-x-4">
+        <a href="#" class="hover:text-white transition-colors">ANPC</a>
+        <span class="text-gray-700">|</span>
+        <a href="#" class="hover:text-white transition-colors">GDPR</a>
+        <span class="text-gray-700">|</span>
+        <a href="#" class="hover:text-white transition-colors">Politica de Confidențialitate</a>
+      </div>
+      <p class="text-[11px] text-gray-600 mt-2">&copy; 2026 Ghiran Auto Moto. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+</section>
+
+</div>
+
+<!-- Scriptul de Interpolare pentru Secretara Virtuală -->
+<script>
+function trimitePeWhatsApp(event) {
+  event.preventDefault();
+  
+  const nume = document.getElementById('nume').value;
+  const telefon = document.getElementById('telefon').value;
+  const locatie = document.querySelector('input[name="locatie"]:checked').value;
+  
+  const numarSecretariat = "40765350334"; 
+  
+  const mesaj = `Salut, Ghiran Auto Moto! M-am înscris gratuit pe site pentru Categoria B. Numele meu este ${nume} și atașez poza cu buletinul pentru dosar.\n\nDetalii suplimentare:\n📍 Locație dorită: ${locatie}\n📞 Telefon: ${telefon}`;
+  
+  const urlWhatsApp = `https://wa.me/${numarSecretariat}?text=${encodeURIComponent(mesaj)}`;
+  
+  window.open(urlWhatsApp, '_blank');
+}
+</script>
+
+</body>
+</html>
