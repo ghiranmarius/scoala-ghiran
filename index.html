@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Școala Auto Ghiran - Cel mai bun start în conducere!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #FAFAFA;
+            color: #1F2937;
+            line-height: 1.5;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 480px; /* Optimizat pentru lățimea standard de mobil */
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* Header Navigation */
+        header {
+            padding: 15px;
+            background: #ffffff;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-btn {
+            background-color: #E31E24;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        /* Hero Section with logo3_20.png as Background */
+        .hero {
+            position: relative;
+            padding: 40px 20px 20px 20px;
+            background-image: url('logo3_20.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.85); /* Overlay subtil ca să se citească textul bine */
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background-color: #FEE2E2;
+            color: #E31E24;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #111827;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #4B5563;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* Renault Clio Image (logo2_20.png) */
+        .hero-car {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Main CTA Button */
+        .cta-btn-large {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #E31E24;
+            color: #ffffff;
+            text-decoration: none;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(227, 30, 36, 0.3);
+            margin-top: 15px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 30px 20px;
+            background: #ffffff;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .feature-card {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: #F9FAFB;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #F3F4F6;
+        }
+
+        .feature-icon {
+            color: #E31E24;
+            font-size: 1.5rem;
+            margin-top: 3px;
+        }
+
+        .feature-text h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        /* Pricing Card Section (Replicates screenshot layout) */
+        .pricing-section {
+            padding: 30px 20px;
+            background-color: #F9FAFB;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background-color: #1A1D20; /* Fundal închis exact ca în captură */
+            border-radius: 20px;
+            padding: 30px 20px;
+            color: #ffffff;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .pricing-badge {
+            background: rgba(227, 30, 36, 0.15);
+            color: #E31E24;
+            border: 1px solid #E31E24;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .pricing-badge span {
+            background-color: #E31E24;
+            color: #ffffff;
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.65rem;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .price-val {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: #9CA3AF;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-sub {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 6px 14px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #E5E7EB;
+            margin-bottom: 25px;
+        }
+
+        .pricing-sub span {
+            color: #22C55E; /* Verde pentru accent pozitiv */
+        }
+
+        .pricing-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .pricing-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #E5E7EB;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .pricing-list li i {
+            color: #10B981;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .pricing-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 20px 0;
+        }
+
+        .rate-info {
+            font-size: 0.85rem;
+            color: #9CA3AF;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .rate-info strong {
+            color: #ffffff;
+        }
+
+        /* Footer Section (Replicates footer screenshot) */
+        footer {
+            background-color: #111622; /* Culoarea închisă din a doua captură */
+            color: #ffffff;
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 35px;
+            width: auto;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+
+        .footer-tagline {
+            color: #E31E24;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 15px auto;
+        }
+
+        .footer-section-title {
+            color: #9CA3AF;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .footer-address {
+            font-size: 0.95rem;
+            color: #E5E7EB;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .footer-phone {
+            color: #FC4C52; /* Roșu mai luminos din footer-ul tău */
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .footer-hours {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-bottom: 15px;
+        }
+
+        .footer-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 20px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.75rem;
+            color: #6B7280;
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+        }
+
+        .footer-copyright {
+            font-size: 0.7rem;
+            color: #4B5563;
+            margin-top: 25px;
+        }
+
+        /* Floating Sticky WhatsApp Button on mobile */
+        .sticky-whatsapp {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 450px;
+            background-color: #E31E24;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <!-- logo1.png conține emblema școlii -->
+                <img src="logo1.png" alt="Ghiran Auto Moto Logo">
+            </div>
+            <a href="inscriere.html" class="nav-btn">Înscrie-te</a>
+        </header>
+
+        <!-- Hero Section (logo3_20.png este setat ca background în CSS) -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">Dej & Gherla</span>
+                <h1>Ia-ți permisul fără stres și fără drumuri inutile!</h1>
+                <p>Teorie online live, instructori dedicați și plată flexibilă direct la secretariat.</p>
+                
+                <!-- logo2_20.png conține autoturismul Renault Clio -->
+                <img src="logo2_20.png" alt="Renault Clio 4 - Ghiran Auto Moto" class="hero-car">
+                
+                <a href="inscriere.html" class="cta-btn-large">
+                    Prinde un loc în următoarea grupă 🚀
+                </a>
+            </div>
+        </section>
+
+        <!-- Beneficii / "De ce noi?" Section -->
+        <section class="features">
+            <h2 class="section-title">De ce să alegi Ghiran?</h2>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-laptop"></i>
+                </div>
+                <div class="feature-text">
+                    <h3>Teorie Modernă pe Meet</h3>
+                    <p>Faci cursurile de legislație interactiv, direct din confortul casei tale, pe telefon sau laptop.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-face-smile"></i>
+                </div>
+                <div class="feature-text">
+                    <h3>Instructori Calmi și Calificați</h3>
+                    <p>Învățăm împreună de la zero, cu răbdare, într-o atmosferă complet destinsă și fără țipete.</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <div class="feature-text">
+                    <h3>Parcări Fără Stres pe Renault Clio</h3>
+                    <p>Conduci modelul urban agil și simplu de manevrat, excelent pentru a lua traseul din prima încercare.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tarife Transparente (Replicates Captură de ecran 2026-07-11 182616.png) -->
+        <section class="pricing-section">
+            <h2 class="section-title">Un singur preț. Fără costuri ascunse.</h2>
+            
+            <div class="pricing-card">
+                <div class="pricing-badge">
+                    <span>B</span> PACHET COMPLET
+                </div>
+                
+                <div class="price-container">
+                    <span class="price-val">2190</span>
+                    <span class="price-unit">LEI, TOTAL</span>
+                </div>
+                
+                <div class="pricing-sub">
+                    Fără dobândă · <span>rate direct la școală</span>
+                </div>
+                
+                <ul class="pricing-list">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Toate orele de teorie Live pe Google Meet
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Toate cele 30 de ore de conducere practică pe Renault Clio
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Carburantul inclus pentru toate ședințele
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Pregătirea completă a dosarului de examen (cazier, fișe)
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Înscriere 100% gratuită — trimiți doar o poză cu buletinul pe WhatsApp
+                    </li>
+                </ul>
+                
+                <div class="pricing-divider"></div>
+                
+                <div class="rate-info">
+                    <strong>Sistem flexibil de rate:</strong> avans 500 lei înainte de prima ședință practică, restul până la ședința 10.
+                </div>
+                
+                <a href="inscriere.html" class="cta-btn-large" style="margin-top: 5px;">
+                    Rezervă acest pachet
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer (Replicates Captură de ecran 2026-07-12 083842.png) -->
+        <footer>
+            <img src="logo1.png" alt="Ghiran Auto Moto Logo" class="footer-logo">
+            <div class="footer-tagline">Cel mai bun start în conducere!</div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-section-title">Sediul Principal Dej</div>
+            <div class="footer-address">Strada Mihail Kogălniceanu Nr. 10, Dej, jud. Cluj</div>
+            <a href="tel:0765350334" class="footer-phone">0765 350 334</a>
+            <div class="footer-hours">Program Secretariat: Luni - Vineri: 09:00 - 17:00</div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-section-title">Punct de Întâlnire Gherla</div>
+            <div class="footer-address" style="font-size: 0.85rem; color: #9CA3AF; margin-bottom: 25px;">
+                Zonă stabilită de comun acord cu instructorul pentru începerea orelor de practică.
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <a href="#" class="footer-back-link">
+                <i class="fa-solid fa-arrow-left"></i> Înapoi la Acasă
+            </a>
+            
+            <div class="footer-links">
+                <a href="#">ANPC</a>
+                <span>|</span>
+                <a href="#">GDPR</a>
+                <span>|</span>
+                <a href="#">Politica de Confidențialitate</a>
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Ghiran Auto Moto. Toate drepturile rezervate.
+            </div>
+        </footer>
+
+        <!-- Floating Sticky CTA Button for Mobile WhatsApp -->
+        <a href="https://wa.me/40765350334?text=Salut!%20Vreau%20să%20mă%20înscriu%20la%20școala%20de%20șoferi." class="sticky-whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Înscrie-te rapid pe WhatsApp
+        </a>
+
+    </div>
+
+</body>
+</html>
