@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghiran Auto-Moto — Ia-ți permisul fără stres | Școala de șoferi Dej</title>
+<meta name="description" content="Școală de șoferi în Dej din 1991. Teorie live pe Google Meet, instructori calmi, flotă Renault Clio, plată în rate 0% dobândă direct la secretariat.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root{
+        --red:#E31E24;
+        --red-dark:#B8181D;
+        --black:#111827;
+        --gray-900:#1A1A1A;
+        --gray-600:#4B5563;
+        --gray-400:#9CA3AF;
+        --gray-100:#F3F4F6;
+        --bg:#F9F9F9;
+        --green:#16A34A;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--gray-900);line-height:1.55;}
+    a{color:inherit;}
+    img{max-width:100%;display:block;}
+
+    .container{width:100%;max-width:500px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 30px rgba(0,0,0,.06);position:relative;overflow:hidden;padding-bottom:80px;}
+
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;position:sticky;top:0;background:#fff;z-index:200;border-bottom:1px solid var(--gray-100);}
+    header img{height:38px;width:auto;}
+    .nav-btn{background:var(--red);color:#fff;text-decoration:none;padding:9px 18px;border-radius:22px;font-weight:800;font-size:.82rem;white-space:nowrap;}
+
+    /* TRUST STRIP */
+    .trust-strip{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;background:var(--gray-900);color:#fff;font-size:.68rem;font-weight:700;padding:7px 10px;text-align:center;letter-spacing:.3px;}
+    .trust-strip span{opacity:.9;}
+    .trust-strip .dot{opacity:.4;}
+
+    /* HERO */
+    .hero{position:relative;padding:28px 20px 10px;text-align:center;overflow:hidden;background:linear-gradient(180deg,#fff 0%,#fdf1f1 100%);}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#FEE2E2;color:var(--red);padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:800;text-transform:uppercase;margin-bottom:14px;letter-spacing:.4px;}
+    .hero h1{font-size:1.7rem;font-weight:900;color:var(--black);line-height:1.22;margin-bottom:10px;}
+    .hero h1 .accent{color:var(--red);}
+    .hero p{font-size:.95rem;color:var(--gray-600);margin-bottom:18px;font-weight:500;max-width:380px;margin-left:auto;margin-right:auto;}
+    .hero-stats{display:flex;justify-content:center;gap:18px;margin-bottom:18px;flex-wrap:wrap;}
+    .hero-stat{text-align:center;}
+    .hero-stat .num{font-size:1.25rem;font-weight:900;color:var(--red);display:block;}
+    .hero-stat .lbl{font-size:.66rem;color:var(--gray-600);font-weight:700;text-transform:uppercase;}
+    .hero-car{width:100%;max-width:400px;margin:0 auto 18px;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.12);}
+
+    .cta-btn-large{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;width:100%;padding:16px;border-radius:12px;font-size:1.02rem;font-weight:800;box-shadow:0 6px 18px rgba(227,30,36,.35);border:none;cursor:pointer;}
+    .cta-btn-large:active{transform:scale(.98);}
+    .cta-btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;background:#fff;color:var(--red);text-decoration:none;width:100%;padding:14px;border-radius:12px;font-size:.92rem;font-weight:800;border:2px solid var(--red);margin-top:10px;}
+
+    section{padding:36px 20px;}
+    .section-eyebrow{display:block;text-align:center;color:var(--red);font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+    .section-title{font-size:1.35rem;font-weight:900;color:var(--black);margin-bottom:8px;text-align:center;line-height:1.25;}
+    .section-sub{font-size:.85rem;color:var(--gray-600);text-align:center;margin-bottom:22px;}
+
+    /* FEATURES */
+    .features{background:#fff;}
+    .feature-card{display:flex;gap:14px;padding:16px;background:var(--bg);border-radius:14px;margin-bottom:12px;border:1px solid var(--gray-100);}
+    .feature-icon{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:#FEE2E2;color:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.15rem;}
+    .feature-text h3{font-size:.98rem;font-weight:800;color:var(--black);margin-bottom:3px;}
+    .feature-text p{font-size:.82rem;color:var(--gray-600);}
+
+    /* CAR SECTION */
+    .car-section{background:var(--gray-900);color:#fff;}
+    .car-section .section-title{color:#fff;}
+    .car-section .section-sub{color:#B9BEC7;}
+    .car-photo{border-radius:16px;overflow:hidden;margin-bottom:18px;box-shadow:0 10px 25px rgba(0,0,0,.4);}
+    .car-points{list-style:none;}
+    .car-points li{display:flex;gap:10px;font-size:.85rem;color:#D7DAE0;margin-bottom:12px;align-items:flex-start;}
+    .car-points li i{color:var(--red);margin-top:3px;flex:0 0 auto;}
+    .car-points b{color:#fff;}
+
+    /* PRICING */
+    .pricing-section{background:var(--bg);}
+    .pricing-card{background:var(--gray-900);border-radius:20px;padding:26px 20px;color:#fff;position:relative;box-shadow:0 15px 30px rgba(0,0,0,.18);}
+    .pricing-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(227,30,36,.18);color:#FF6B70;border:1px solid var(--red);padding:5px 12px;border-radius:20px;font-size:.72rem;font-weight:800;margin-bottom:14px;}
+    .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
+    .price-val{font-size:2.6rem;font-weight:900;line-height:1;}
+    .price-unit{font-size:.85rem;color:var(--gray-400);font-weight:700;text-transform:uppercase;}
+    .pricing-sub{background:rgba(255,255,255,.08);border-radius:20px;padding:6px 14px;display:inline-block;font-size:.76rem;font-weight:700;color:#E5E7EB;margin-bottom:22px;}
+    .pricing-sub b{color:#4ADE80;}
+    .pricing-list{list-style:none;margin-bottom:20px;}
+    .pricing-list li{display:flex;gap:10px;font-size:.86rem;color:#E5E7EB;margin-bottom:11px;align-items:flex-start;}
+    .pricing-list li i{color:#4ADE80;margin-top:2px;flex:0 0 auto;}
+    .pricing-divider{height:1px;background:rgba(255,255,255,.1);margin:18px 0;}
+    .rate-info{font-size:.8rem;color:var(--gray-400);margin-bottom:18px;}
+    .rate-info b{color:#fff;}
+    .extra-costs{margin-top:14px;background:#fff;border-radius:14px;padding:14px 16px;border:1px solid var(--gray-100);}
+    .extra-costs summary{font-weight:800;font-size:.85rem;cursor:pointer;color:var(--black);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+    .extra-costs summary::-webkit-details-marker{display:none;}
+    .extra-costs[open] summary{margin-bottom:10px;}
+    .extra-costs table{width:100%;font-size:.78rem;border-collapse:collapse;}
+    .extra-costs td{padding:5px 0;color:var(--gray-600);border-top:1px dashed var(--gray-100);}
+    .extra-costs td:last-child{text-align:right;font-weight:800;color:var(--black);}
+
+    /* REVIEWS */
+    .reviews-section{background:#fff;}
+    .review-stats{display:flex;justify-content:center;gap:26px;margin-bottom:22px;text-align:center;}
+    .review-stats .num{font-size:1.5rem;font-weight:900;color:var(--black);display:block;}
+    .review-stats .num.red{color:var(--red);}
+    .review-stats .lbl{font-size:.68rem;color:var(--gray-600);font-weight:700;text-transform:uppercase;}
+    .review-filters{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px;}
+    .review-filters button{flex:0 0 auto;border:1.5px solid var(--gray-100);background:#fff;color:var(--gray-600);font-weight:700;font-size:.76rem;padding:8px 14px;border-radius:20px;white-space:nowrap;}
+    .review-filters button.active{background:var(--red);border-color:var(--red);color:#fff;}
+    .review-card{background:var(--bg);border-radius:14px;padding:16px;margin-bottom:12px;border:1px solid var(--gray-100);}
+    .review-card .stars{color:#FBBF24;font-size:.8rem;margin-bottom:6px;}
+    .review-card .author{font-weight:800;font-size:.85rem;color:var(--black);display:flex;align-items:center;gap:6px;}
+    .review-card .author i{color:#4285F4;font-size:.85rem;}
+    .review-card p{font-size:.83rem;color:var(--gray-600);margin-top:6px;font-style:italic;}
+    .review-tag{display:inline-block;font-size:.65rem;font-weight:800;text-transform:uppercase;color:var(--red);margin-top:8px;letter-spacing:.3px;}
+
+    /* PARENTS SECTION */
+    .parents-section{background:var(--gray-900);color:#fff;}
+    .parents-section .section-title{color:#fff;}
+    .parents-section .section-sub{color:#B9BEC7;}
+    .parent-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+    .parent-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;display:flex;gap:12px;align-items:flex-start;}
+    .parent-card i{color:#FF6B70;font-size:1.2rem;margin-top:2px;flex:0 0 auto;}
+    .parent-card h4{font-size:.9rem;font-weight:800;margin-bottom:3px;}
+    .parent-card p{font-size:.8rem;color:#C7CBD3;}
+
+    /* LEAD MAGNET */
+    .lead-section{background:linear-gradient(135deg,#FEE2E2 0%,#fff 100%);}
+    .lead-card{background:#fff;border-radius:18px;padding:22px 18px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid var(--gray-100);}
+    .lead-card .lead-icon{width:56px;height:56px;background:var(--red);color:#fff;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px;}
+    .lead-card h3{font-size:1.15rem;font-weight:900;margin-bottom:8px;color:var(--black);}
+    .lead-card p{font-size:.85rem;color:var(--gray-600);margin-bottom:16px;}
+
+    /* OPEN DAY CTA */
+    .cta-final{background:var(--red);color:#fff;text-align:center;}
+    .cta-final h2{font-size:1.35rem;font-weight:900;margin-bottom:10px;}
+    .cta-final p{font-size:.88rem;margin-bottom:20px;opacity:.95;}
+    .cta-final .cta-btn-large{background:#fff;color:var(--red);}
+
+    /* FORM */
+    .form-section{background:#fff;}
+    .contact-form{background:var(--bg);border-radius:18px;padding:20px;border:1px solid var(--gray-100);}
+    .form-group{margin-bottom:14px;}
+    .form-group label{display:block;font-size:.72rem;font-weight:800;color:var(--gray-600);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;}
+    .form-group input,.form-group textarea{width:100%;padding:12px 14px;border:2px solid var(--gray-100);border-radius:10px;font-size:.9rem;background:#fff;outline:none;}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--red);}
+    .radio-group{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .radio-group label{display:flex;align-items:center;justify-content:center;gap:6px;padding:11px;background:#fff;border:2px solid var(--gray-100);border-radius:10px;font-weight:800;font-size:.85rem;cursor:pointer;text-transform:none;}
+    .radio-group input{width:auto;accent-color:var(--red);}
+    .file-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:76px;border:2px dashed var(--gray-400);border-radius:10px;background:#fff;cursor:pointer;text-align:center;padding:8px;}
+    .file-drop span{font-size:1.2rem;}
+    .file-drop p{font-size:.75rem;font-weight:700;color:var(--gray-600);}
+    .captcha-row{display:flex;align-items:center;gap:10px;}
+    .captcha-row .q{font-size:.85rem;font-weight:800;color:var(--black);white-space:nowrap;}
+
+    /* CONTACT DIRECT */
+    .contact-direct{background:var(--bg);border-radius:14px;padding:18px;margin-top:18px;border:1px solid var(--gray-100);}
+    .contact-direct h4{font-size:.85rem;font-weight:800;margin-bottom:12px;color:var(--black);}
+    .contact-row{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-600);margin-bottom:9px;}
+    .contact-row i{color:var(--red);width:18px;text-align:center;}
+    .contact-row a{font-weight:700;color:var(--black);text-decoration:none;}
+
+    /* FOOTER */
+    footer{background:var(--black);color:#fff;padding:34px 20px 18px;text-align:center;}
+    .footer-logo{height:32px;margin:0 auto 16px;filter:brightness(0) invert(1);}
+    .footer-tagline{color:var(--red);font-size:.92rem;font-weight:900;letter-spacing:.5px;margin-bottom:20px;text-transform:uppercase;}
+    .footer-divider{width:36px;height:1px;background:rgba(255,255,255,.15);margin:14px auto;}
+    .footer-section-title{color:var(--gray-400);font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+    .footer-address{font-size:.88rem;color:#E5E7EB;margin-bottom:4px;font-weight:500;}
+    .footer-phone{color:#FF6B70;font-size:1.05rem;font-weight:800;text-decoration:none;display:inline-block;margin:4px 0;}
+    .footer-hours{font-size:.78rem;color:var(--gray-400);margin-bottom:6px;}
+    .footer-social{display:flex;justify-content:center;gap:14px;margin:16px 0 6px;}
+    .footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:.95rem;}
+    .footer-links{display:flex;justify-content:center;gap:12px;font-size:.68rem;color:var(--gray-400);margin-top:14px;flex-wrap:wrap;}
+    .footer-links a{text-decoration:none;color:var(--gray-400);}
+    .footer-copyright{font-size:.65rem;color:#4B5563;margin-top:18px;}
+
+    /* STICKY WHATSAPP */
+    .sticky-whatsapp{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:calc(100% - 28px);max-width:472px;background:var(--red);color:#fff;text-decoration:none;padding:13px;border-radius:30px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:800;font-size:.92rem;box-shadow:0 8px 22px rgba(0,0,0,.3);z-index:150;}
+
+    @media (min-width:520px){ .parent-grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <img src="logo2.PNG" alt="Ghiran Auto-Moto">
+        <a href="inscriere.html" class="nav-btn">Înscrie-te</a>
+    </header>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+        <span>★ 4.9/5 din 100+ recenzii</span><span class="dot">•</span>
+        <span>35+ ani experiență</span><span class="dot">•</span>
+        <span>16.000+ absolvenți</span>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <span class="hero-badge"><i class="fa-solid fa-location-dot"></i> Dej &amp; Gherla</span>
+        <h1>Ia-ți permisul <span class="accent">din prima</span>, fără stres și fără drumuri inutile</h1>
+        <p>Teorie live pe Google Meet, instructori calmi și răbdători, plată în rate cu 0% dobândă direct la școală.</p>
+
+        <div class="hero-stats">
+            <div class="hero-stat"><span class="num">1991</span><span class="lbl">Înființată</span></div>
+            <div class="hero-stat"><span class="num">16.000+</span><span class="lbl">Cursanți</span></div>
+            <div class="hero-stat"><span class="num">4.9★</span><span class="lbl">Rating Google</span></div>
+        </div>
+
+        <div class="hero-car">
+            <img src="logo2_20.png" alt="Renault Clio - mașină de școală Ghiran Auto-Moto">
+        </div>
+
+        <a href="inscriere.html" class="cta-btn-large">
+            <i class="fa-solid fa-rocket"></i> Prinde un loc în următoarea grupă
+        </a>
+        <a href="#ghid" class="cta-btn-outline">
+            <i class="fa-solid fa-gift"></i> Vreau ghidul gratuit „Top 10 greșeli la traseu"
+        </a>
+    </section>
+
+    <!-- BENEFICII -->
+    <section class="features">
+        <span class="section-eyebrow">De ce Ghiran Auto-Moto</span>
+        <h2 class="section-title">Tot ce contează pentru tine, într-un singur loc</h2>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-laptop"></i></div>
+            <div class="feature-text">
+                <h3>Teorie modernă pe Meet</h3>
+                <p>Cursuri live, interactive, direct din camera ta — de pe telefon sau laptop, fără drumuri obositoare după liceu.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-face-smile"></i></div>
+            <div class="feature-text">
+                <h3>Instructori calmi, fără țipete</h3>
+                <p>Învățăm pas cu pas, de la zero, cu multă răbdare — exact ce spun și cursanții în recenziile de mai jos.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="feature-text">
+                <h3>Rate 0% direct la școală</h3>
+                <p>Fără bănci, fără adeverințe de venit, fără birocrație. Avans doar 500 Lei, restul flexibil.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="feature-text">
+                <h3>35+ ani de experiență</h3>
+                <p>Din 1991 pregătim șoferi responsabili în Dej — peste 16.000 de cursanți școlarizați până acum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAȘINI -->
+    <section class="car-section">
+        <span class="section-eyebrow">Flota noastră</span>
+        <h2 class="section-title">De ce înveți pe Renault Clio?</h2>
+        <p class="section-sub">Alegerea numărul 1 la nivel european pentru viitorii șoferi.</p>
+
+        <div class="car-photo">
+            <img src="logo2_20.png" alt="Renault Clio 4 - flota Ghiran Auto-Moto">
+        </div>
+
+        <ul class="car-points">
+            <li><i class="fa-solid fa-circle-check"></i><span><b>90% din școlile de șoferi din Franța</b> — recunoscută pentru standardele exigente de siguranță — folosesc exclusiv Renault Clio.</span></li>
+            <li><i class="fa-solid fa-circle-check"></i><span><b>Manevrabilitate excelentă</b> la parcări și în intersecții strâmte — direcție asistată fină, ideală pentru examenul de traseu.</span></li>
+            <li><i class="fa-solid fa-circle-check"></i><span><b>Motorizare agilă</b>, potrivită pentru traficul urban intens — răspuns rapid și sigur în sensuri giratorii.</span></li>
+            <li><i class="fa-solid fa-circle-check"></i><span>Flotă formată din <b>5 Renault Clio + 1 Renault Captur automată</b>, pentru cursanții care aleg cutia automată.</span></li>
+        </ul>
+    </section>
+
+    <!-- TARIFE -->
+    <section class="pricing-section">
+        <span class="section-eyebrow">Tarife transparente</span>
+        <h2 class="section-title">Un singur preț. Fără costuri ascunse.</h2>
+
+        <div class="pricing-card">
+            <div class="pricing-badge"><i class="fa-solid fa-car"></i> Pachet Complet Categoria B</div>
+            <div class="price-row">
+                <span class="price-val">2190</span>
+                <span class="price-unit">Lei, total</span>
+            </div>
+            <div class="pricing-sub">Fără dobândă · <b>rate direct la secretariat</b></div>
+
+            <ul class="pricing-list">
+                <li><i class="fa-solid fa-circle-check"></i> 24 ore de teorie interactivă, live pe Google Meet</li>
+                <li><i class="fa-solid fa-circle-check"></i> 30 ore de conducere practică pe Renault Clio (15 ședințe x 2h)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Pregătirea și eliberarea completă a dosarului de examinare</li>
+                <li><i class="fa-solid fa-circle-check"></i> Înscriere 100% gratuită — trimiți doar o poză cu buletinul pe WhatsApp</li>
+            </ul>
+
+            <div class="pricing-divider"></div>
+
+            <div class="rate-info"><b>Sistem flexibil de rate:</b> avans 500 Lei înainte de prima ședință practică, restul achitat flexibil, cel târziu până la ședința 10.</div>
+
+            <a href="inscriere.html" class="cta-btn-large">Rezervă acest pachet</a>
+        </div>
+
+        <details class="extra-costs">
+            <summary>Ce documente îți mai trebuie și cât costă? <i class="fa-solid fa-chevron-down"></i></summary>
+            <table>
+                <tr><td>Analize medicale (la policlinică)</td><td>200 Lei</td></tr>
+                <tr><td>Test psihologic (la policlinică)</td><td>100 Lei</td></tr>
+                <tr><td>Cazier judiciar (ghiseul.ro)</td><td>Gratuit</td></tr>
+                <tr><td>Taxă eliberare permis</td><td>89 Lei</td></tr>
+                <tr><td>Asigurare autoturism, ziua examenului</td><td>200 Lei</td></tr>
+                <tr><td>Ședință suplimentară facultativă</td><td>75 Lei/oră</td></tr>
+                <tr><td>Ore suplimentare după picare (conform legii)</td><td>85 Lei/oră</td></tr>
+            </table>
+        </details>
+    </section>
+
+    <!-- RECENZII -->
+    <section class="reviews-section">
+        <span class="section-eyebrow">Google Reviews</span>
+        <h2 class="section-title">Ce spun cursanții noștri</h2>
+
+        <div class="review-stats">
+            <div><span class="num red">4.9/5.0</span><span class="lbl">Rating mediu</span></div>
+            <div><span class="num">100+</span><span class="lbl">Recenzii reale</span></div>
+            <div><span class="num">98%</span><span class="lbl">Rată de promovare</span></div>
+        </div>
+
+        <div class="review-filters">
+            <button class="active" data-filter="all">Toate</button>
+            <button data-filter="frica">Răbdare &amp; calm</button>
+            <button data-filter="legislatie">Legislație</button>
+            <button data-filter="reusita">Promovat din prima</button>
+        </div>
+
+        <div class="review-card" data-cat="frica">
+            <div class="author"><i class="fa-brands fa-google"></i> Campan Karina · Local Guide</div>
+            <div class="stars">★★★★★</div>
+            <p>"În urmă cu 8 ani am încercat să îmi iau permisul cu o altă școală din Dej, dar a fost un eșec. La Ghiran Auto-Moto, instructorul s-a înarmat cu răbdare, cuvinte înțelepte și umor. M-a transformat dintr-o persoană căreia îi era frică să se urce la volan în una care conduce cu zâmbetul pe buze!"</p>
+            <span class="review-tag">Frica de volan</span>
+        </div>
+
+        <div class="review-card" data-cat="frica">
+            <div class="author"><i class="fa-brands fa-google"></i> Alexandru Mic</div>
+            <div class="stars">★★★★★</div>
+            <p>"La condus, instructorul m-a ajutat mult să scap de teama de a conduce în traficul intens din Dej, mai ales la orele de vârf. Parcările le-am învățat din 2-3 încercări. Totul a mers ca uns!"</p>
+            <span class="review-tag">Frica de volan</span>
+        </div>
+
+        <div class="review-card" data-cat="legislatie">
+            <div class="author"><i class="fa-brands fa-google"></i> ANA'S MAGIC WORLD</div>
+            <div class="stars">★★★★★</div>
+            <p>"Instructorii care țin cursurile pentru examenul teoretic sunt foarte bine pregătiți și amabili. Știu ce materiale să recomande pentru pregătire. Recomand!"</p>
+            <span class="review-tag">Legislație</span>
+        </div>
+
+        <div class="review-card" data-cat="legislatie">
+            <div class="author"><i class="fa-brands fa-google"></i> Alexandru Mic</div>
+            <div class="stars">★★★★★</div>
+            <p>"De la orele de legislație până la pregătirea documentelor, examenului medical și orele de condus, totul a mers perfect. Profesorul de legislație îți dă numărul de telefon să îl suni oricând nu înțelegi o întrebare."</p>
+            <span class="review-tag">Legislație</span>
+        </div>
+
+        <div class="review-card" data-cat="reusita">
+            <div class="author"><i class="fa-brands fa-google"></i> Ionuț Vrănău</div>
+            <div class="stars">★★★★★</div>
+            <p>"Luat din prima! Mulțumesc pentru tot!!!"</p>
+            <span class="review-tag">Promovat din prima</span>
+        </div>
+
+        <div class="review-card" data-cat="reusita">
+            <div class="author"><i class="fa-brands fa-google"></i> Ceghezi Cristina</div>
+            <div class="stars">★★★★★</div>
+            <p>"Cea mai bună școală auto, cu instructori foarte răbdători și serioși! Felicitări dl. Ghiran!"</p>
+            <span class="review-tag">Promovat din prima</span>
+        </div>
+    </section>
+
+    <!-- PĂRINȚI -->
+    <section class="parents-section">
+        <span class="section-eyebrow">Pentru părinți</span>
+        <h2 class="section-title">Siguranța copilului dumneavoastră este prioritatea noastră</h2>
+        <p class="section-sub">Știm că decizia de a-ți lăsa copilul la volan vine cu multe emoții. Îl formăm ca șofer defensiv și responsabil.</p>
+
+        <div class="parent-grid">
+            <div class="parent-card">
+                <i class="fa-solid fa-sack-dollar"></i>
+                <div><h4>Fără surprize la portofel</h4><p>Prețul afișat este final: 2190 Lei. Plată în rate 0% dobândă, direct la secretariat.</p></div>
+            </div>
+            <div class="parent-card">
+                <i class="fa-solid fa-eye"></i>
+                <div><h4>Control și confort</h4><p>Teoria pe Google Meet vă oferă garanția că tânărul participă activ la ore, din siguranța casei.</p></div>
+            </div>
+            <div class="parent-card">
+                <i class="fa-solid fa-user-graduate"></i>
+                <div><h4>Instructori-pedagogi</h4><p>Profesioniști calmi, metode moderne de predare, fără țipete sau stres pentru copilul dumneavoastră.</p></div>
+            </div>
+            <div class="parent-card">
+                <i class="fa-solid fa-car-side"></i>
+                <div><h4>Mașini sigure și moderne</h4><p>Flotă Renault Clio bine întreținută, ideală pentru un start sigur în trafic.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEAD MAGNET -->
+    <section class="lead-section" id="ghid">
+        <span class="section-eyebrow">Cadou gratuit</span>
+        <h2 class="section-title">Ghidul de Supraviețuire la Traseu</h2>
+        <div class="lead-card">
+            <div class="lead-icon"><i class="fa-solid fa-file-shield"></i></div>
+            <h3>Top 10 Greșeli la Examenul de Traseu și Cum le Eviți</h3>
+            <p>Învață din greșelile altora și mărește-ți șansele să iei permisul din prima. Îl trimitem instant, gratuit, pe WhatsApp sau e-mail.</p>
+            <a href="inscriere.html#ghid-form" class="cta-btn-large"><i class="fa-solid fa-download"></i> Vreau ghidul gratuit</a>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final">
+        <h2>Încă nu ești decis?</h2>
+        <p>Vino să ne testezi gratuit! Urcă-te la volan, cunoaște instructorul și vezi cum se desfășoară prima ședință — fără nicio obligație financiară.</p>
+        <a href="inscriere.html" class="cta-btn-large"><i class="fa-solid fa-door-open"></i> Rezervă loc la Ziua Porților Deschise</a>
+    </section>
+
+    <!-- FORMULAR -->
+    <section class="form-section" id="contact">
+        <span class="section-eyebrow">Hai să vorbim</span>
+        <h2 class="section-title">Completează formularul și te sunăm noi</h2>
+        <p class="section-sub">O discuție de câteva minute nu te obligă la nimic. Tot ce discutăm rămâne între noi.</p>
+
+        <form class="contact-form" onsubmit="trimiteFormular(event)">
+            <div class="form-group">
+                <label>Cum să-ți spunem?</label>
+                <input type="text" id="c-nume" placeholder="Ex: Răzvan" required>
+            </div>
+            <div class="form-group">
+                <label>Numărul tău de WhatsApp</label>
+                <input type="tel" id="c-telefon" placeholder="07xx xxx xxx" required>
+            </div>
+            <div class="form-group">
+                <label>Mesajul tău</label>
+                <textarea id="c-mesaj" rows="3" placeholder="Vreau să mă înscriu la următoarea grupă pe Meet!"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Verificare rapidă</label>
+                <div class="captcha-row">
+                    <span class="q">Cât fac 2 + 3?</span>
+                    <input type="text" id="c-captcha" style="max-width:70px" required>
+                </div>
+            </div>
+            <button type="submit" class="cta-btn-large"><i class="fa-brands fa-whatsapp"></i> Trimite &amp; programează apel</button>
+        </form>
+
+        <div class="contact-direct">
+            <h4>Preferi să ne suni direct?</h4>
+            <div class="contact-row"><i class="fa-solid fa-location-dot"></i> Strada Mihail Kogălniceanu, Nr. 10, Dej</div>
+            <div class="contact-row"><i class="fa-solid fa-phone"></i> <a href="tel:0765350334">0765 350 334</a></div>
+            <div class="contact-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:ghiran.dej@gmail.com">ghiran.dej@gmail.com</a></div>
+            <div class="contact-row"><i class="fa-solid fa-clock"></i> Luni–Joi 10:00–17:00 · Vineri 10:00–13:00</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="logo2.PNG" alt="Ghiran Auto Moto" class="footer-logo">
+        <div class="footer-tagline">Cel mai bun start în conducere!</div>
+
+        <div class="footer-divider"></div>
+        <div class="footer-section-title">Sediul Principal Dej</div>
+        <div class="footer-address">Strada Mihail Kogălniceanu Nr. 10, Dej, jud. Cluj</div>
+        <a href="tel:0765350334" class="footer-phone">0765 350 334</a>
+        <div class="footer-hours">Program secretariat: Luni–Joi 10:00–17:00, Vineri 10:00–13:00</div>
+
+        <div class="footer-divider"></div>
+        <div class="footer-section-title">Punct de întâlnire Gherla</div>
+        <div class="footer-address" style="font-size:.8rem;color:var(--gray-400);">Zonă stabilită de comun acord cu instructorul pentru orele de practică.</div>
+
+        <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">ANPC</a><span>|</span><a href="#">GDPR</a><span>|</span><a href="#">Politica de confidențialitate</a>
+        </div>
+        <div class="footer-copyright">© 2026 Ghiran Auto-Moto. Toate drepturile rezervate.</div>
+    </footer>
+
+    <!-- STICKY WHATSAPP -->
+    <a href="https://wa.me/40765350334?text=Salut!%20Vreau%20să%20mă%20înscriu%20la%20școala%20de%20șoferi." class="sticky-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.15rem;"></i> Înscrie-te rapid pe WhatsApp
+    </a>
+
+</div>
+
+<script>
+// Filtre recenzii
+document.querySelectorAll('.review-filters button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.review-filters button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.review-card').forEach(card=>{
+            card.style.display = (filter==='all' || card.dataset.cat===filter) ? 'block' : 'none';
+        });
+    });
+});
+
+function trimiteFormular(event){
+    event.preventDefault();
+    const nume = document.getElementById('c-nume').value;
+    const telefon = document.getElementById('c-telefon').value;
+    const mesaj = document.getElementById('c-mesaj').value;
+    const captcha = document.getElementById('c-captcha').value;
+    if(captcha.trim() !== '5'){
+        alert('Verificarea anti-spam este incorectă. Cât fac 2 + 3?');
+        return;
+    }
+    const numarSecretariat = "40765350334";
+    const text = `Salut! Sunt ${nume} și am completat formularul de pe site.\n📞 Telefon: ${telefon}\n💬 Mesaj: ${mesaj || 'Vreau să vorbim!'}`;
+    window.open(`https://wa.me/${numarSecretariat}?text=${encodeURIComponent(text)}`, '_blank');
+}
+</script>
+
+</body>
+</html>
